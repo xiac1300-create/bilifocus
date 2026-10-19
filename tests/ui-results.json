@@ -1,0 +1,62 @@
+[
+  {
+    "test": "options loads migrated video list and empty uploader list",
+    "passed": true
+  },
+  {
+    "test": "add named uploader example and save both lists",
+    "passed": true
+  },
+  {
+    "test": "bare uploader name is rejected rather than guessed",
+    "passed": true
+  },
+  {
+    "test": "starting locks video and uploader settings",
+    "passed": true
+  },
+  {
+    "test": "early exit needs correct confirmation in learning space",
+    "passed": true
+  },
+  {
+    "test": "library.html is read-only with no early-exit shortcut",
+    "passed": true
+  },
+  {
+    "test": "blocked.html is read-only with no early-exit shortcut",
+    "passed": true
+  },
+  {
+    "test": "video page shows direct start without options shortcut",
+    "passed": true
+  },
+  {
+    "test": "page checkbox starts with uploader and removes easy exit controls",
+    "passed": true
+  },
+  {
+    "test": "switch-video control opens only the read-only directory",
+    "passed": true
+  },
+  {
+    "test": "external session end restores UI and one-click entry",
+    "passed": true
+  },
+  {
+    "test": "SPA route changes remove and restore video-page entry",
+    "passed": true
+  },
+  {
+    "test": "settings fit a narrow window without horizontal overflow",
+    "passed": true
+  },
+  {
+    "test": "gate displays a retry on API failure and does not navigate to video",
+    "passed": true
+  },
+  {
+    "test": "no uncaught browser JavaScript errors",
+    "passed": true
+  }
+]

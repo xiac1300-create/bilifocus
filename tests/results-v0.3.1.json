@@ -1,0 +1,155 @@
+{
+  "version": "0.3.1",
+  "date": "2026-10-14",
+  "unit_background": {
+    "passed": 101,
+    "failed": 0
+  },
+  "ui_basic": [
+    {
+      "test": "options loads migrated video list and empty uploader list",
+      "passed": true
+    },
+    {
+      "test": "add named uploader example and save both lists",
+      "passed": true
+    },
+    {
+      "test": "bare uploader name is rejected rather than guessed",
+      "passed": true
+    },
+    {
+      "test": "starting locks video and uploader settings",
+      "passed": true
+    },
+    {
+      "test": "learning-space end is a single click with no typing field",
+      "passed": true
+    },
+    {
+      "test": "library.html is read-only with no early-exit shortcut",
+      "passed": true
+    },
+    {
+      "test": "blocked.html is read-only with no early-exit shortcut",
+      "passed": true
+    },
+    {
+      "test": "video page shows direct start without options shortcut",
+      "passed": true
+    },
+    {
+      "test": "page start retains uploader checkbox and shows one-click end",
+      "passed": true
+    },
+    {
+      "test": "switch-video control opens only the read-only directory",
+      "passed": true
+    },
+    {
+      "test": "external session end restores UI and one-click entry",
+      "passed": true
+    },
+    {
+      "test": "SPA route changes remove and restore video-page entry",
+      "passed": true
+    },
+    {
+      "test": "settings fit a narrow window without horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "gate displays a retry on API failure and does not navigate to video",
+      "passed": true
+    },
+    {
+      "test": "no uncaught browser JavaScript errors",
+      "passed": true
+    }
+  ],
+  "ui_background": [
+    {
+      "test": "records tab opens the empty state without errors",
+      "passed": true
+    },
+    {
+      "test": "daily totals aggregate two modes and four videos correctly",
+      "passed": true
+    },
+    {
+      "test": "session cards retain distinct start/end times and playback details",
+      "passed": true
+    },
+    {
+      "test": "records screenshot renders with explicit demo-data label",
+      "passed": true
+    },
+    {
+      "test": "daily Markdown and full JSON export contain expected records",
+      "passed": true
+    },
+    {
+      "test": "date navigation changes the day instead of losing archives",
+      "passed": true
+    },
+    {
+      "test": "video titles render as text, not executable HTML",
+      "passed": true
+    },
+    {
+      "test": "history and metrics fit narrow windows",
+      "passed": true
+    },
+    {
+      "test": "countup starts from zero, accumulates and locks settings",
+      "passed": true
+    },
+    {
+      "test": "active countup appears in history and cannot be erased mid-session",
+      "passed": true
+    },
+    {
+      "test": "one-click learning-space finish archives session and unlocks settings",
+      "passed": true
+    },
+    {
+      "test": "video-page countup has a direct end button",
+      "passed": true
+    },
+    {
+      "test": "content samples reach real background logic and record observed progress",
+      "passed": true
+    },
+    {
+      "test": "cross-UP switch targets selected allowed uploader without ending session",
+      "passed": true
+    },
+    {
+      "test": "a page-script synthetic click cannot end the session",
+      "passed": true
+    },
+    {
+      "test": "video-page click flushes playback, saves and restores browsing without navigation",
+      "passed": true
+    },
+    {
+      "test": "another session starts directly and preserves history plus UP whitelist",
+      "passed": true
+    },
+    {
+      "test": "failed saving keeps session active and permits a successful one-click retry",
+      "passed": true
+    },
+    {
+      "test": "start and end controls remain accessible in a narrow browser window",
+      "passed": true
+    },
+    {
+      "test": "no uncaught JavaScript errors",
+      "passed": true
+    }
+  ],
+  "native_extension_integration": false,
+  "real_bilibili_integration": false,
+  "note": "Chrome APIs and media progress mocked. Current managed Chromium blocks native extension installation and web navigation."
+}

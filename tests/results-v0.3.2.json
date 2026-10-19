@@ -1,0 +1,309 @@
+{
+  "version": "0.3.2",
+  "date": "2026-10-14",
+  "scope": "Offline simulated pages, Chrome APIs mocked; native extension and live Bilibili unverified.",
+  "node": {
+    "passed": 106,
+    "failed": 0,
+    "tests": [
+      "saves a list without installing restrictions",
+      "starts, installs redirect plus allow rules, and redirects an existing unrelated tab",
+      "does not start an empty list",
+      "active lists are locked",
+      "settings stop needs no typing and removes all rules",
+      "GET_STATE clears an expired session and durable rules",
+      "rejects settings calls from web pages/content scripts",
+      "adds an active tab video and rejects wrong hosts",
+      "concurrent additions serialize without losing a video",
+      "parses a BV and removes duplicates",
+      "parses labels and multiple links",
+      "rejects a short link and malformed line",
+      "does not conflate case-sensitive BV identifiers",
+      "video identity requires exact host, scheme and path",
+      "only whitelisted videos and passport are allowed",
+      "session deadline is absolute",
+      "settings normalize safely",
+      "round-trip list remains safe and identical",
+      "DNR rules distinguish videos and leave unrelated domains alone",
+      "countdown does not go negative",
+      "v0.1 settings migrate without losing saved videos or duration",
+      "UP parsing accepts UID and localized space links, deduplicates by UID",
+      "UP parsing rejects ambiguous names and wrong hosts",
+      "UP settings round-trip and labels cannot inject extra lines",
+      "UP-only learning is valid but an empty union is rejected",
+      "same uploader names do not grant access to different UIDs",
+      "UP root goes to videos; favorites, dynamics and follows remain blocked",
+      "DNR: unknown BV uses verification gate, not a blanket video allow rule",
+      "DNR: whitelisted UID videos allowed; root redirected; other sections blocked",
+      "DNR accepts only exact BV routes including part and timestamp query strings",
+      "rule count stays below 1000 and rule IDs are unique at maximum capacity",
+      "page start adds current video without making any metadata request",
+      "page start can include the current uploader and preserve prior saved lists",
+      "page start rejects stale tab identity and subframes",
+      "content cannot use generic STOP or edit settings (PAGE_STOP is scoped separately)",
+      "generic STOP stays options-only; PAGE_STOP is handled separately",
+      "page can open read-only directory but not make it an exit shortcut",
+      "adding current uploader uses only fixed public endpoint with credentials omitted",
+      "verified uploader gets a session grant, not a permanent BV list entry",
+      "a video owned by an unlisted UID is rejected even when metadata title matches",
+      "metadata failure fails closed and does not begin checkbox-enabled page session",
+      "metadata HTTP rate limit fails closed in a running session",
+      "metadata mismatched BVID or missing numeric UID cannot grant access",
+      "already whitelisted BV needs no network even with uploader list populated",
+      "up and video additions and page starts are locked during a session",
+      "expired and malformed stored session clears durable rules",
+      "external origins and privileged lookalike extension paths are rejected",
+      "stopping during a pending lookup is immediate and cannot resurrect a session grant",
+      "same video lookups deduplicate without losing independent grants",
+      "page options shortcut works while idle without storing a session",
+      "page options shortcut preserves countup, records, rules and timers",
+      "page options shortcut preserves countdown, records, rules and timers",
+      "page options shortcut rejects foreign IDs, subframes and non-Bilibili pages",
+      "opening options does not give the content script access to saved records",
+      "mode defaults to countdown and legacy countdown migrates",
+      "countup is active without a deadline; malformed countup still rejects missing start",
+      "clock supports hours and never displays NaN",
+      "countup starts and creates a periodic reconciliation alarm",
+      "one-click countup end archives the exact wall interval",
+      "late countdown reconciliation ends at deadline, not wake time",
+      "repeated stop and reads never duplicate archives",
+      "worker reload keeps the same running session and previous playback data",
+      "opening a page and its first sample are not counted as a viewed video",
+      "actual progress credits wall playback and metadata, once",
+      "paused samples do not accrue future playback",
+      "background/ineligible player and inactive tab do not accrue",
+      "picture in picture can count an inactive tab",
+      "stalled media contributes zero",
+      "partial buffering credits only observed progress, conservatively",
+      "2x speed credits real time, not video content duration",
+      "seek/discontinuity does not inflate playback totals",
+      "long heartbeat gaps/sleep are not backfilled",
+      "two visible tabs cannot double count overlapping playback",
+      "different parts and different uploaders are separate video entries",
+      "cross-midnight playback is split into the correct local days",
+      "daily session durations split at midnight while retaining one session",
+      "records are available only from the options page",
+      "history cannot be cleared while studying or without confirmation",
+      "stale session samples cannot resurrect stopped records",
+      "sample cannot target a different BV or part from the actual tab",
+      "record metadata never authorizes a non-whitelisted video",
+      "public records and archive omit internal stream markers",
+      "playback persistence does not rewrite the entire archive every heartbeat",
+      "failed stop persistence restores restrictions and preserves running record",
+      "retention trims oldest archived sessions and tracks pruning",
+      "saving or adding whitelist entries preserves history",
+      "early manual countdown end does not claim planned duration",
+      "video count is deduplicated across sessions on the same day",
+      "page countup stop needs no confirmation and archives wall time",
+      "page countdown stop archives actual interval, not the whole planned duration",
+      "page end just after countdown expiry records completed once at the deadline",
+      "simultaneous page end from two video tabs creates only one archive",
+      "a delayed page end cannot terminate a subsequently started session",
+      "page end rejects a missing session ID",
+      "page end rejects a stale video target",
+      "page end rejects subframes and another extension identity",
+      "extension directory and gate cannot impersonate page end",
+      "page end is available on a whitelisted uploader video listing",
+      "an unlisted uploader page cannot use page end",
+      "a Bilibili homepage cannot use page end",
+      "a video awaiting uploader verification cannot call page end",
+      "page end persistence failure restores restrictions and does not claim success",
+      "final playback sample queued before page end is included in archive",
+      "playback arriving after page end cannot mutate the archived record",
+      "page end preserves both lists and existing daily history",
+      "new settings UI session token rejects stale end without requiring typed text"
+    ]
+  },
+  "ui_layout": [
+    {
+      "test": "options loads migrated video list and empty uploader list",
+      "passed": true
+    },
+    {
+      "test": "add named uploader example and save both lists",
+      "passed": true
+    },
+    {
+      "test": "bare uploader name is rejected rather than guessed",
+      "passed": true
+    },
+    {
+      "test": "starting locks video and uploader settings",
+      "passed": true
+    },
+    {
+      "test": "learning-space end is a single click with no typing field",
+      "passed": true
+    },
+    {
+      "test": "library.html is read-only with no early-exit shortcut",
+      "passed": true
+    },
+    {
+      "test": "blocked.html is read-only with no early-exit shortcut",
+      "passed": true
+    },
+    {
+      "test": "video page shows direct start and the options shortcut",
+      "passed": true
+    },
+    {
+      "test": "page start retains uploader checkbox and shows one-click end",
+      "passed": true
+    },
+    {
+      "test": "switch-video control opens only the read-only directory",
+      "passed": true
+    },
+    {
+      "test": "external session end restores UI and one-click entry",
+      "passed": true
+    },
+    {
+      "test": "SPA route changes remove and restore video-page entry",
+      "passed": true
+    },
+    {
+      "test": "settings fit a narrow window without horizontal overflow",
+      "passed": true
+    },
+    {
+      "test": "gate displays a retry on API failure and does not navigate to video",
+      "passed": true
+    },
+    {
+      "test": "no uncaught browser JavaScript errors",
+      "passed": true
+    }
+  ],
+  "ui_with_mocked_background": [
+    {
+      "test": "records tab opens the empty state without errors",
+      "passed": true
+    },
+    {
+      "test": "daily totals aggregate two modes and four videos correctly",
+      "passed": true
+    },
+    {
+      "test": "session cards retain distinct start/end times and playback details",
+      "passed": true
+    },
+    {
+      "test": "records screenshot renders with explicit demo-data label",
+      "passed": true
+    },
+    {
+      "test": "daily Markdown and full JSON export contain expected records",
+      "passed": true
+    },
+    {
+      "test": "date navigation changes the day instead of losing archives",
+      "passed": true
+    },
+    {
+      "test": "video titles render as text, not executable HTML",
+      "passed": true
+    },
+    {
+      "test": "history and metrics fit narrow windows",
+      "passed": true
+    },
+    {
+      "test": "countup starts from zero, accumulates and locks settings",
+      "passed": true
+    },
+    {
+      "test": "active countup appears in history and cannot be erased mid-session",
+      "passed": true
+    },
+    {
+      "test": "one-click learning-space finish archives session and unlocks settings",
+      "passed": true
+    },
+    {
+      "test": "idle video page opens learning space without starting or navigating the video",
+      "passed": true
+    },
+    {
+      "test": "video-page countup has a direct end button",
+      "passed": true
+    },
+    {
+      "test": "countup clock is hidden by default while the session remains active",
+      "passed": true
+    },
+    {
+      "test": "countup hover reveals a live clock without changing panel size",
+      "passed": true
+    },
+    {
+      "test": "countup mouse exit hides time even after clicking; unrelated hover stays quiet",
+      "passed": true
+    },
+    {
+      "test": "countup keyboard focus can reveal the clock and moving focus hides it",
+      "passed": true
+    },
+    {
+      "test": "active video page opens learning space without ending or resetting learning",
+      "passed": true
+    },
+    {
+      "test": "synthetic page clicks cannot open learning space",
+      "passed": true
+    },
+    {
+      "test": "options errors leave learning intact and the shortcut can retry",
+      "passed": true
+    },
+    {
+      "test": "content samples reach real background logic and record observed progress",
+      "passed": true
+    },
+    {
+      "test": "cross-UP switch targets selected allowed uploader without ending session",
+      "passed": true
+    },
+    {
+      "test": "a page-script synthetic click cannot end the session",
+      "passed": true
+    },
+    {
+      "test": "video-page click flushes playback, saves and restores browsing without navigation",
+      "passed": true
+    },
+    {
+      "test": "another session starts directly and preserves history plus UP whitelist",
+      "passed": true
+    },
+    {
+      "test": "countdown clock is hidden by default while the session remains active",
+      "passed": true
+    },
+    {
+      "test": "countdown hover reveals a live clock without changing panel size",
+      "passed": true
+    },
+    {
+      "test": "countdown mouse exit hides time even after clicking; unrelated hover stays quiet",
+      "passed": true
+    },
+    {
+      "test": "countdown keyboard focus can reveal the clock and moving focus hides it",
+      "passed": true
+    },
+    {
+      "test": "failed saving keeps session active and permits a successful one-click retry",
+      "passed": true
+    },
+    {
+      "test": "start and end controls remain accessible in a narrow browser window",
+      "passed": true
+    },
+    {
+      "test": "no uncaught JavaScript errors",
+      "passed": true
+    }
+  ]
+}

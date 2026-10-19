@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BiliFocus · 学习空间</title><link rel="stylesheet" href="ui.css"></head>
+<body><main class="shell">
+<header class="topbar"><div class="brand"><span class="mark">F.</span>BILI / FOCUS</div><span id="status" class="tag">自由浏览</span></header>
+<section class="hero"><p class="eyebrow">YOUR TIME, YOUR CHOICE</p><h1>把选择留在开始之前。</h1><p>视频页一键开始或结束；学习中自由切换已选内容。记录自动保存，随时回看。</p></section>
+<div id="notice" class="status-note" role="status" aria-live="polite" hidden></div>
+<nav class="view-tabs" role="tablist" aria-label="学习空间分页"><button id="settings-tab" class="view-tab selected" role="tab" aria-selected="true" aria-controls="settings-view">学习设置</button><button id="records-tab" class="view-tab" role="tab" aria-selected="false" aria-controls="records-view">学习记录</button></nav>
+<section id="settings-view" role="tabpanel" aria-labelledby="settings-tab"><div class="grid"><div>
+<section class="card" aria-labelledby="list-heading">
+<div class="section-head"><h2 id="list-heading">视频白名单</h2><span id="count" class="count">0 个视频</span></div>
+<p class="help">只开放具体视频。同一 BV 下的全部分 P 均可播放；保留倍速和弹幕。</p>
+<label class="label" for="videos">完整视频链接或 BV 号，一行一个</label>
+<textarea id="videos" rows="4" spellcheck="false" placeholder="课程名称 | https://www.bilibili.com/video/BV.../"></textarea>
+</section>
+<section class="card section-space" aria-labelledby="up-heading">
+<div class="section-head"><h2 id="up-heading">UP 主白名单</h2><span id="up-count" class="count">0 位 UP 主</span></div>
+<p class="help">放行账号的全部普通投稿，包括以后发布的视频。按 <strong>UID</strong> 匹配，不按昵称猜测；共同投稿仅按主要发布账号判断。</p>
+<label class="label" for="uploaders">空间链接或数字 UID，一行一位</label>
+<textarea id="uploaders" rows="4" spellcheck="false" placeholder="昵称备注 | https://space.bilibili.com/数字UID&#10;也可在视频页勾选「同时放行当前 UP 主」。"></textarea>
+<div class="buttons"><button id="add-example" class="secondary">添加众合教育</button></div>
+<p class="help">可选示例：众合教育 · UID 417302260。添加后仍须保存；请先核对是否为你要看的账号。</p>
+<label class="check"><input id="hideComments" type="checkbox" checked><span>同时隐藏评论区<small>首页、热门、动态和跨账号推荐仍受限制。账号内的娱乐投稿也会放行。</small></span></label>
+<div class="buttons"><button id="save" class="secondary">保存两份名单</button></div>
+<p id="locked" class="help" hidden>本次学习已开始，名单和设置已锁定；本次学习结束后解锁。</p>
+</section>
+<section class="card section-space"><div class="section-head"><h2>已保存的学习目录</h2><span class="count">视频 + UP 主</span></div><div id="up-queue" class="queue"></div><div id="queue" class="queue"></div></section>
+</div><aside>
+<section class="card timer-card" aria-label="学习计时">
+<p class="eyebrow">FOCUS SESSION</p><h2 id="timer-heading">留一段完整的时间</h2><div id="timer" class="timer" aria-live="off">45:00</div><p id="timer-caption" class="timer-caption">计时结束自动解除限制。<br>关闭面板不会中断计时。</p>
+<label class="label" for="mode">计时方式</label><select id="mode" class="mode-picker"><option value="countdown">倒计时 · 到时自动结束</option><option value="countup">正计时 · 手动结束</option></select>
+<div id="duration-field"><label class="label" for="duration">学习时长（分钟）</label><input id="duration" type="number" min="1" max="480" step="1" value="45"></div>
+<div class="buttons"><button id="start" class="primary wide">保存并开始学习</button></div>
+<div id="session-controls" hidden><button id="stop" class="secondary wide">结束学习</button></div>
+<div class="note-box">视频页右下角可以一键开始或结束。结束会自动保存本次记录并恢复自由浏览，无需输入确认文字。</div>
+</section>
+<section class="card small-card"><div class="mini-heading">规则留在本机</div><p>UP 主校验会向 B站查询公开的视频编号及发布账号，不发送账号密码或 Cookie。没有第三方统计、AI 调用或自建服务器。</p><p>仅适用于电脑版普通视频与白名单 UP 主的投稿页。接口异常时不自动放行，单独加入 BV 的视频不依赖 UP 校验。</p><p>这是专注辅助；你仍可通过浏览器管理页关闭扩展。</p></section>
+</aside></div></section>
+
+<section id="records-view" role="tabpanel" aria-labelledby="records-tab" hidden>
+<div class="record-intro"><div><p class="eyebrow">YOUR LEARNING, IN VIEW</p><h2>每一次学习，都有迹可循。</h2><p class="help">正计时与倒计时统一记录；按电脑本地日期汇总，跨午夜自动分天。</p></div><span id="records-status" class="tag">本机保存</span></div>
+<div class="date-toolbar"><button id="date-prev" class="secondary" aria-label="前一天">←</button><label class="sr-only" for="record-date">记录日期</label><input type="date" id="record-date"><button id="date-next" class="secondary" aria-label="后一天">→</button><button id="date-today" class="secondary">今天</button><span id="records-updated" class="help"></span></div>
+<div class="stats-grid"><section class="stat"><p>学习模式时长</p><strong id="day-mode">0分</strong><small>从开始到结束的经过时间</small></section><section class="stat emphasis"><p>视频播放用时</p><strong id="day-played">0分</strong><small>前台 / 画中画播放的墙钟时间</small></section><section class="stat"><p>学习场次</p><strong id="day-count">0</strong><small>包含正在进行的学习</small></section><section class="stat"><p>播放过的视频</p><strong id="day-videos">0</strong><small>按 BV + 分 P 去重</small></section></div>
+<p class="record-method">模式时长包含暂停、离开网页、关闭浏览器与电脑休眠。播放用时仅在前台或画中画的视频进度实际推进时保守累计，不代表你全程专注。两倍速播放 10 分钟，记录约 10 分钟。</p>
+<div id="record-sessions" class="record-sessions"></div>
+<div class="card section-space"><div class="section-head"><h2>数据由你保管</h2><span class="count">LOCAL ONLY</span></div><p id="retention-note" class="help"></p><div class="buttons"><button id="export-day" class="secondary">导出当日小结</button><button id="export-records" class="secondary">导出全部记录（JSON）</button><button id="clear-records" class="danger-link">清空历史记录</button></div><p class="help">记录从 v0.3.0 开始累积，不会读取 B站的账号历史。卸载扩展前请先导出；导出文件包含视频名称与学习时间，请注意保管。</p></div>
+</section>
+<footer class="footer"><p>BiliFocus 0.3.2 · 本地试用版 · 非哔哩哔哩官方产品</p><p>开始时，已打开的无关 B站页面会转到学习提示页。第一次先测试 1 分钟。网页或接口变化可能需要适配。</p></footer>
+</main><script src="logic.js"></script><script src="records.js"></script><script src="ui-common.js"></script><script src="options.js"></script><script src="records-ui.js"></script></body></html>

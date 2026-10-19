@@ -1,0 +1,31 @@
+/* A brief visibility gate avoids exposing an unapproved SPA destination. */
+html.bf-checking body { visibility: hidden !important; }
+html.bf-active .bili-header,
+html.bf-active #biliMainHeader,
+html.bf-active .bili-header__bar,
+html.bf-active .bili-header-m,
+html.bf-active .recommend-list-v1,
+html.bf-active .recommend-list,
+html.bf-active .recommend-container__2-line,
+html.bf-active .recommend-container,
+html.bf-active .video-page-game-card,
+html.bf-active .ad-report,
+html.bf-active .pop-live-small-mode,
+html.bf-active .bpx-player-ending-related,
+html.bf-active .bpx-player-ending-related-list,
+html.bf-active .bpx-player-ending-panel-box-recommend,
+html.bf-active .bpx-player-ctrl-next { display: none !important; }
+html.bf-active.bf-no-comments #comment,
+html.bf-active.bf-no-comments #commentapp,
+html.bf-active.bf-no-comments .comment-container,
+html.bf-active.bf-no-comments .video-comment,
+html.bf-active.bf-no-comments bili-comments { display: none !important; }
+/* Do not remove the whole right column: it may contain the course's P list. */
+
+/* A whitelisted account's video listing stays available. Other sections are
+   guarded by URL rules; hide their links instead of removing its whole layout. */
+html.bf-active a[href*="/dynamic"],
+html.bf-active a[href*="/favlist"],
+html.bf-active a[href*="/relation/"],
+html.bf-active a[href*="/article"],
+html.bf-active a[href*="live.bilibili.com"] { display: none !important; }

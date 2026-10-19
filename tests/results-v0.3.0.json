@@ -1,0 +1,76 @@
+{
+  "version": "0.3.0",
+  "unit_background": {
+    "passed": 83,
+    "failed": 0
+  },
+  "offline_ui": {
+    "passed": 30,
+    "failed": 0
+  },
+  "new_ui_details": [
+    {
+      "test": "records tab opens the empty state without errors",
+      "passed": true
+    },
+    {
+      "test": "daily totals aggregate two modes and four videos correctly",
+      "passed": true
+    },
+    {
+      "test": "session cards retain distinct start/end times and playback details",
+      "passed": true
+    },
+    {
+      "test": "records screenshot renders with explicit demo-data label",
+      "passed": true
+    },
+    {
+      "test": "daily Markdown and full JSON export contain expected records",
+      "passed": true
+    },
+    {
+      "test": "date navigation changes the day instead of losing archives",
+      "passed": true
+    },
+    {
+      "test": "video titles render as text, not executable HTML",
+      "passed": true
+    },
+    {
+      "test": "history and metrics fit narrow windows",
+      "passed": true
+    },
+    {
+      "test": "countup starts from zero, accumulates and locks settings",
+      "passed": true
+    },
+    {
+      "test": "active countup appears in history and cannot be erased mid-session",
+      "passed": true
+    },
+    {
+      "test": "confirmed countup finish archives session and unlocks settings",
+      "passed": true
+    },
+    {
+      "test": "video-page countup entry retains no easy-exit button",
+      "passed": true
+    },
+    {
+      "test": "content samples reach real background logic and record observed progress",
+      "passed": true
+    },
+    {
+      "test": "cross-UP switch targets selected allowed uploader without ending session",
+      "passed": true
+    },
+    {
+      "test": "no uncaught JavaScript errors",
+      "passed": true
+    }
+  ],
+  "native_extension_tested": false,
+  "real_bilibili_player_tested": false,
+  "limitations": "Mocked browser APIs and synthetic playback; native extension loading is restricted by managed browser policy."
+}
